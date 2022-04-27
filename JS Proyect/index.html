@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Country Quiz</title>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<img src="/loader.svg" alt="Cargando..." class="loader" />
+		<div id="blurry-filter"></div>
+		<header>
+			<div>
+				<article id="title"><span class="parent">Search</span><br /><span class="name">Pokémon</span></article>
+			</div>
+		</header>
+		<section id="folders">
+			<button id="nameButton">By name</button>
+			<button id="typeButton">By type</button>
+			<button id="genButton">By generation</button>
+		</section>
+		<main>
+			<div id="buscador">
+				<div class="form__group field">
+					<input
+						type="search"
+						class="form__field"
+						placeholder="Search by"
+						name="name"
+						id="searchInput"
+						required
+						autocomplete="off"
+						disabled
+						data-typeOfSearch
+					/>
+					<label id="searchLabel" for="name" class="form__label">Search by</label>
+				</div>
+				<button class="buttonImput" disabled>Search</button>
+			</div>
+			<div class="tarjetas"></div>
+		</main>
+		<footer></footer>
+		<script src="/index.js" type="module"></script>
+	</body>
+</html>

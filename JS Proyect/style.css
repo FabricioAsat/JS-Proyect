@@ -1,0 +1,319 @@
+.loader {
+  position: absolute;
+  visibility: hidden;
+  top: 50%;
+  left: calc(50% - 2rem);
+  margin: 1rem auto;
+  width: 4rem;
+  height: 4rem;
+}
+
+#blurry-filter {
+    width: 100%;
+    height: 9rem;
+    mask: linear-gradient(black 7rem, transparent);
+    -webkit-mask: linear-gradient(black 7rem, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    pointer-events: none;
+    touch-action: none;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #EEE;
+    font-family: "Open Sans", sans-serif;
+    box-sizing: border-box;
+    cursor: default;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  header {
+    width: 100%;
+    height: 8rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  header > div {
+    width: calc(100% - 3rem);
+    max-width: 800px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  #title {
+    width: 100%;
+  }
+  #title .parent {
+    line-height: 1em;
+    color: #666;
+  }
+  #title .name {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    mix-blend-mode: difference;
+  }
+  
+  #folders {
+    width: calc(100% - 3rem);
+    max-width: 800px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  #folders > button {
+    width: 100%;
+    height: 3rem;
+    padding: 0 1.5rem;
+    background-color: #FFF;
+    border-radius: 1rem;
+    border: none;
+    line-height: 3rem;
+    transition: all 100ms ease-out;
+    font-weight: 800;
+    text-align: center;
+    cursor: pointer;
+    color: #9b9b9b;
+
+  }
+  #folders > button:hover {
+    box-shadow: 0 16px 16px -4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.02);
+    color: #11998e;
+  }
+
+  #buscador{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 80vw;
+  }
+
+  .buttonImput {
+    color: #9b9b9b;
+    height: 40px;
+    padding: 0 1.7em;
+    margin-left: 2em;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 0.5em;
+    background: #EEE;
+    border: 1px solid #9b9b9b;
+    transition: all .3s;
+    /* box-shadow: 6px 6px 12px #c5c5c5,
+                -6px -6px 12px #ffffff; */
+   }
+   
+   .buttonImput:hover {
+    border: 1px solid #11998e;
+    color: #11998e;
+    cursor: pointer;
+   }
+   
+   .buttonImput:active {
+     transform: scale(.95);
+   }
+
+   .buttonImput:disabled{
+     opacity: .5;
+    }
+    .buttonImput:disabled:active{
+      transform: scale(1);
+      
+    }
+    .buttonImput:disabled:hover{
+      border: 1px solid #9b9b9b;
+      color: #9b9b9b;
+      cursor: default;
+    
+  }
+
+  
+  .form__group {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 10px;
+    width: 50%;
+  }
+  
+  .form__field {
+    font-family: inherit;
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #9b9b9b;
+    outline: 0;
+    font-size: 1.3rem;
+    color: #9b9b9b;
+    padding: 7px 0;
+    background: transparent;
+    transition: border-color 0.2s;
+  }
+  .form__field::placeholder {
+    color: transparent;
+  }
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+  
+  .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #9b9b9b;
+  }
+  
+  .form__field:focus {
+    padding-bottom: 6px;
+    font-weight: 700;
+    border-width: 3px;
+    border-image: linear-gradient(to right, #11998e, #38ef7d);
+    border-image-slice: 1;
+  }
+  .form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight: 700;
+  }
+  
+  /* reset input */
+  .form__field:required, .form__field:invalid {
+    box-shadow: none;
+  }
+  
+  /* demo */
+  main {
+    font-family: inherit, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    min-height: 100vh;
+    font-size: 1.5rem;
+  }
+  
+  .tarjetas{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 200px);
+    grid-template-rows: repeat(auto-fit, 300px);
+    justify-content: space-evenly;
+    padding-top: 30px;
+    padding-left: 100px;
+    padding-right:100px ;
+
+  }
+  
+  
+  .card {
+    display: grid;
+    grid-template-columns: repeat(1,190px);
+    grid-template-rows: 4fr 2fr 1fr;
+    width: 190px;
+    height: 254px;
+    background: #9d9c9c;
+    transition: all 300ms;
+    margin: 0 auto 44px auto;
+
+  }
+  
+  .card:hover {
+    opacity: 0.8;
+    transform: scale(1.10);
+    cursor: pointer;
+  }
+  
+  .card img{
+    height: 100%;
+    margin: 0 auto;
+  }
+  
+  .card *{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal{
+    position: fixed;
+    top: 7.5rem;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: #3335; */
+
+    /* mask: linear-gradient(black 7rem, transparent); */
+    /* -webkit-mask: linear-gradient(black 7rem, transparent); */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+
+    width: 400px;
+    height: calc(100vh - 9rem);
+    overflow-y: auto;
+
+  }
+  .modal::-webkit-scrollbar{
+    display: none;
+  }
+
+  .modal button{
+    color: #9b9b9b;
+    text-align: center;
+    border: none;
+    font-size: 28px;
+    margin: 10px;
+    /* mask: inherit; */
+    /* backdrop-filter: inherit; */
+    background-color: inherit;
+    cursor: pointer;
+  }
+
+  .modal button:hover{
+    color: #11998e;
+    font-weight: bold;
+
+  }
+
+  .hideModal{
+    left: -400px;
+    opacity: 0;
+    transition: all 300ms ease;
+  }
+
+  .hideTarjeta{
+    display: none;
+  }
+  
+  footer {
+    width: 100%;
+    height: 8rem;
+  }
